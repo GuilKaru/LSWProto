@@ -10,18 +10,49 @@ public class PlayerMovement : MonoBehaviour
     public Animator clothesAnim;
     public Animator hairTopAnim;
     public Animator hairBottomAnim;
+    public GameObject PlayerOutfit;
+    public int Gold = 50;
 
     private Vector2 lastMoveDir;
     private Vector2 moveDirection;
+    private string currentAnimation;
+    private Sprite currentSprite;
+    private int changeOutfit;
+    [HideInInspector]
+    public int currentOutfit;
+
+    //Animation States
+    const string Outfit_1 = "IdleOutfit1";
+    const string Outfit_2 = "IdleOutfit2";
+    const string Outfit_3 = "IdleOutfit3";
 
     private void Start()
     {
-        clothesAnim.SetBool("Clothe1", true);
+        changeOutfit = PlayerOutfit.GetComponent<OutfitChanger>().currentOption;
+        
     }
-
 
     void Update()
     {
+        
+        currentOutfit = PlayerOutfit.GetComponent<OutfitChanger>().currentOption;
+        currentSprite = PlayerOutfit.GetComponent<OutfitChanger>().options[currentOutfit];
+
+        if (currentSprite == Items.GetSprite(Items.ItemType.Outfit_1))
+        {
+            ChangeAnimationState(Outfit_1);
+        } 
+        else if (currentSprite == Items.GetSprite(Items.ItemType.Outfit_2))
+        {
+            ChangeAnimationState(Outfit_2);
+        } 
+        else if (currentSprite == Items.GetSprite(Items.ItemType.Outfit_3))
+        {
+            ChangeAnimationState(Outfit_3);
+        }
+
+        //Debug.Log(currentOutfit);
+
         GetInputs();
         Animate(playerAnim);
         Animate(clothesAnim);
@@ -31,7 +62,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Move();
+        if (!PauseMenu.isPaused)
+        {
+            Move();
+        }
     }
 
     void GetInputs()
@@ -60,5 +94,17 @@ public class PlayerMovement : MonoBehaviour
         animate.SetFloat("MoveMagnitude", moveDirection.magnitude);
         animate.SetFloat("LastMoveX", lastMoveDir.x);
         animate.SetFloat("LastMoveY", lastMoveDir.y);
+    }
+
+    void ChangeAnimationState(string newState)
+    {
+        if (currentAnimation == newState) return;
+
+        clothesAnim.Play(newState);
+        playerAnim.Play("Idle", 0, 0.0f);
+        hairTopAnim.Play("Idle", 0, 0.0f);
+        hairBottomAnim.Play("Idle", 0, 0.0f);
+
+        currentAnimation = newState;
     }
 }

@@ -10,7 +10,7 @@ TextureImporter:
     second: 21_Clothing_Store_32x32_1
   - first:
       213: -8368209222973591494
-    second: 21_Clothing_Store_32x32_2
+    second: Cloth3
   - first:
       213: -137640565027414612
     second: 21_Clothing_Store_32x32_3
@@ -70,7 +70,7 @@ TextureImporter:
     second: 21_Clothing_Store_32x32_21
   - first:
       213: -8760844295135331446
-    second: 21_Clothing_Store_32x32_22
+    second: Cloth1
   - first:
       213: 6524970589813664486
     second: 21_Clothing_Store_32x32_23
@@ -124,7 +124,7 @@ TextureImporter:
     second: 21_Clothing_Store_32x32_39
   - first:
       213: 4714820398707673172
-    second: 21_Clothing_Store_32x32_40
+    second: Clothe2
   - first:
       213: 1236445125019227404
     second: 21_Clothing_Store_32x32_41
@@ -3136,7 +3136,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 21_Clothing_Store_32x32_2
+      name: Cloth3
       rect:
         serializedVersion: 2
         x: 64
@@ -3556,7 +3556,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 21_Clothing_Store_32x32_22
+      name: Cloth1
       rect:
         serializedVersion: 2
         x: 192
@@ -3934,7 +3934,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 21_Clothing_Store_32x32_40
+      name: Clothe2
       rect:
         serializedVersion: 2
         x: 256

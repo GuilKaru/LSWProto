@@ -47,13 +47,11 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: IdleCloth1
+  m_Name: IdleOutfit1
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -2837850210264347105}
-  - {fileID: -5346892912488396710}
-  - {fileID: -1015071671633160068}
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
@@ -195,7 +193,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: WalkCloth2
+  m_Name: WalkOutfit2
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -222,13 +220,11 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: IdleCloth2
+  m_Name: IdleOutfit2
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -4735813720301431745}
-  - {fileID: -2896797692748403615}
-  - {fileID: -4419517532100131595}
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
@@ -381,7 +377,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: WalkCloth3
+  m_Name: WalkOutfit3
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -505,7 +501,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: WalthCloth1
+  m_Name: WalkOutfit1
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -641,24 +637,6 @@ AnimatorController:
     m_Controller: {fileID: 0}
   - m_Name: LastMoveY
     m_Type: 1
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 0}
-  - m_Name: Clothe1
-    m_Type: 4
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 1
-    m_Controller: {fileID: 0}
-  - m_Name: Clothe2
-    m_Type: 4
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 0}
-  - m_Name: Clothe3
-    m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
@@ -847,22 +825,22 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: -8476778899688728690}
-    m_Position: {x: 300, y: 330, z: 0}
+    m_Position: {x: 320, y: 80, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -2344081239214028658}
-    m_Position: {x: 300, y: 510, z: 0}
+    m_Position: {x: 640, y: 90, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5573843073659392563}
-    m_Position: {x: 530, y: 200, z: 0}
+    m_Position: {x: 320, y: 190, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7193130711315725289}
-    m_Position: {x: 800, y: 210, z: 0}
+    m_Position: {x: 640, y: 190, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3479217473874959415}
-    m_Position: {x: 290, y: -150, z: 0}
+    m_Position: {x: 640, y: 290, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 9181200452072860926}
-    m_Position: {x: 300, y: 10, z: 0}
+    m_Position: {x: 320, y: 290, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -1039,13 +1017,11 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: IdleCloth3
+  m_Name: IdleOutfit3
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 6228107443674987103}
-  - {fileID: 5601279446664318491}
-  - {fileID: 3619265595806715710}
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
