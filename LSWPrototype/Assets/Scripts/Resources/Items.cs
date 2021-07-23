@@ -34,14 +34,26 @@ public class Items
         }
     }
 
-    public static int GetId(ItemType itemType)
+    public static string GetAnimation(ItemType itemType)
     {
         switch (itemType)
         {
             default:
-            case ItemType.Outfit_1: return 1;
-            case ItemType.Outfit_2: return 2;
-            case ItemType.Outfit_3: return 3;
+            case ItemType.Outfit_1: return "IdleOutfit1";
+            case ItemType.Outfit_2: return "IdleOutfit2";
+            case ItemType.Outfit_3: return "IdleOutfit3";
+        }
+
+    }
+
+    public static string GetName(ItemType itemType)
+    {
+        switch (itemType)
+        {
+            default:
+            case ItemType.Outfit_1: return "DefaultOutfit";
+            case ItemType.Outfit_2: return "Casual";
+            case ItemType.Outfit_3: return "Formal";
         }
 
     }

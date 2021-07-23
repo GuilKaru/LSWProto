@@ -20,7 +20,7 @@ public class Shop : MonoBehaviour
     {
         container = transform.Find("container");
         shopItemTemplate = container.Find("shopItemTemplate");
-        //gameObject.SetActive(false);
+        
     }
 
     private void Update()
@@ -30,9 +30,8 @@ public class Shop : MonoBehaviour
 
     private void Start()
     {
-        CreateItemButton(Items.ItemType.Outfit_2, Items.GetSprite(Items.ItemType.Outfit_2), "Outfit_2", Items.GetCost(Items.ItemType.Outfit_2), 0);
-        CreateItemButton(Items.ItemType.Outfit_3, Items.GetSprite(Items.ItemType.Outfit_3), "Outfit_3", Items.GetCost(Items.ItemType.Outfit_3), 1);
-        //Hide();
+        PopulateShop();
+        
     }
 
     private void CreateItemButton(Items.ItemType itemType, Sprite itemSprite, string itemName, int itemCost, int positionIndex)
@@ -47,12 +46,17 @@ public class Shop : MonoBehaviour
 
         shopItemTransform.Find("itemImage").GetComponent<Image>().sprite = itemSprite;
         shopItemTransform.Find("BuyButton").GetComponent<Button>().onClick.AddListener(delegate { BuyItem(itemType); });
+        shopItemTransform.Find("SellButton").GetComponent<Button>().onClick.AddListener(delegate { SellItem(itemType); });
     }
 
    private void BuyItem(Items.ItemType itemType)
     {
-        //Debug.Log(itemType + "yeah I bought it");
         TrySpendGoldAmount(Items.GetCost(itemType), itemType);
+    }
+
+    private void SellItem(Items.ItemType itemType)
+    {
+        TrySellItem(itemType);
     }
 
     public bool TrySpendGoldAmount(int spendGoldAmount, Items.ItemType itemType)
@@ -61,14 +65,39 @@ public class Shop : MonoBehaviour
         {
             goldAmount -= spendGoldAmount;
             Player.GetComponent<PlayerMovement>().Gold = goldAmount;
+
             addOutfit.options.Add(Items.GetSprite(itemType));
+
             return true;
-        } else
+        } 
+        else
         {
             return false;
         }
     }
 
+    public bool TrySellItem(Items.ItemType itemType)
+    {
+        if (addOutfit.options.Contains(Items.GetSprite(itemType)) && !Player.GetComponent<PlayerMovement>().AreYouTheSame(itemType)){
+
+            goldAmount += Items.GetCost(itemType);
+            Player.GetComponent<PlayerMovement>().Gold = goldAmount;
+
+            addOutfit.options.Remove(Items.GetSprite(itemType));
+
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public void PopulateShop()
+    {
+        CreateItemButton(Items.ItemType.Outfit_2, Items.GetSprite(Items.ItemType.Outfit_2), Items.GetName(Items.ItemType.Outfit_2), Items.GetCost(Items.ItemType.Outfit_2), 0);
+        CreateItemButton(Items.ItemType.Outfit_3, Items.GetSprite(Items.ItemType.Outfit_3), Items.GetName(Items.ItemType.Outfit_3), Items.GetCost(Items.ItemType.Outfit_3), 1);
+    }
     public void Show()
     {
         gameObject.SetActive(true);

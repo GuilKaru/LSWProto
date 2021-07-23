@@ -14,10 +14,8 @@ public class PauseMenu : MonoBehaviour
     
     void Update()
     {
-        //Debug.Log(Input.GetKeyDown("space"));
         if (Input.GetKeyDown("escape"))
         {
-            //Debug.Log("Escape used");
             if (isPaused)
             {
                 ResumeGame();

@@ -10,7 +10,6 @@ public class OutfitChanger : MonoBehaviour
     public GameObject pauseMenu;
     public bool isPaused;
 
-    //public SpriteRenderer bodyPart;
     public Image image;
 
     public List<Sprite> options = new List<Sprite>();
@@ -31,7 +30,7 @@ public class OutfitChanger : MonoBehaviour
     public void PreviousOption()
     {
         currentOption--;
-        if(currentOption <= 0)
+        if(currentOption < 0)
         {
             currentOption = options.Count - 1;
         }

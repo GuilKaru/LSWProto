@@ -21,10 +21,10 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector]
     public int currentOutfit;
 
-    //Animation States
+    /*//Animation States
     const string Outfit_1 = "IdleOutfit1";
     const string Outfit_2 = "IdleOutfit2";
-    const string Outfit_3 = "IdleOutfit3";
+    const string Outfit_3 = "IdleOutfit3";*/
 
     private void Start()
     {
@@ -34,30 +34,9 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        
-        currentOutfit = PlayerOutfit.GetComponent<OutfitChanger>().currentOption;
-        currentSprite = PlayerOutfit.GetComponent<OutfitChanger>().options[currentOutfit];
-
-        if (currentSprite == Items.GetSprite(Items.ItemType.Outfit_1))
-        {
-            ChangeAnimationState(Outfit_1);
-        } 
-        else if (currentSprite == Items.GetSprite(Items.ItemType.Outfit_2))
-        {
-            ChangeAnimationState(Outfit_2);
-        } 
-        else if (currentSprite == Items.GetSprite(Items.ItemType.Outfit_3))
-        {
-            ChangeAnimationState(Outfit_3);
-        }
-
-        //Debug.Log(currentOutfit);
-
+        WhatIsYourOutfit();
         GetInputs();
-        Animate(playerAnim);
-        Animate(clothesAnim);
-        Animate(hairTopAnim);
-        Animate(hairBottomAnim);
+        DoAnimation();
     }
 
     private void FixedUpdate()
@@ -106,5 +85,35 @@ public class PlayerMovement : MonoBehaviour
         hairBottomAnim.Play("Idle", 0, 0.0f);
 
         currentAnimation = newState;
+    }
+
+    private void WhatIsYourOutfit()
+    {
+        AreYouTheSame(Items.ItemType.Outfit_1);
+        AreYouTheSame(Items.ItemType.Outfit_2);
+        AreYouTheSame(Items.ItemType.Outfit_3);
+    }
+
+    public bool AreYouTheSame(Items.ItemType itemType)
+    {
+        currentOutfit = PlayerOutfit.GetComponent<OutfitChanger>().currentOption;
+        currentSprite = PlayerOutfit.GetComponent<OutfitChanger>().options[currentOutfit];
+
+        if (currentSprite == Items.GetSprite(itemType))
+        {
+            ChangeAnimationState(Items.GetAnimation(itemType));
+            return true;
+        } else
+        {
+            return false;
+        }
+    }
+
+    private void DoAnimation()
+    {
+        Animate(playerAnim);
+        Animate(clothesAnim);
+        Animate(hairTopAnim);
+        Animate(hairBottomAnim);
     }
 }

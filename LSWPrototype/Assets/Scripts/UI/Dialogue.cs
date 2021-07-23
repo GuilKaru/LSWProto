@@ -8,6 +8,7 @@ public class Dialogue : MonoBehaviour
     public TextMeshProUGUI textComponent;
     public GameObject textUI;
     public Transform Player;
+    public GameObject SpaceBar;
     [SerializeField]
     private Shop ShopOutfits;
     public string[] lines;
@@ -20,39 +21,13 @@ public class Dialogue : MonoBehaviour
     {
         textComponent.text = string.Empty;
         textUI.SetActive(false);
+        //ShopOutfits.PopulateShop();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!isActive)
-        {
-            if ((this.transform.position - Player.position).sqrMagnitude < 3f)
-            {
-                Debug.Log("PlayerIsNear");
-            }
-            if (((Player.position - this.transform.position).sqrMagnitude < 3) && Input.GetKeyDown("space"))
-            {
-                textUI.SetActive(true);
-                StartDialogue();
-                isActive = true;
-            }
-        } 
-        else
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-                if (textComponent.text == lines[index])
-                {
-                    NextLine();
-                }
-                else
-                {
-                    StopAllCoroutines();
-                    textComponent.text = lines[index];
-                }
-            }
-        }
+        CanWeTalk();
     }
 
     void StartDialogue()
@@ -83,6 +58,43 @@ public class Dialogue : MonoBehaviour
             textComponent.text = string.Empty;
             textUI.SetActive(false);
             ShopOutfits.Show();
+        }
+    }
+    
+    private void CanWeTalk()
+    {
+        if (!isActive)
+        {
+            if ((this.transform.position - Player.position).sqrMagnitude < 3f)
+            {
+                SpaceBar.SetActive(true);
+                Debug.Log("PlayerIsNear");
+            } else
+            {
+                SpaceBar.SetActive(false);
+            }
+            if (((this.transform.position - Player.position).sqrMagnitude < 3f) && Input.GetKeyDown("space"))
+            {
+                textUI.SetActive(true);
+                StartDialogue();
+                isActive = true;
+            }
+            //Player.position - this.transform.position
+        }
+        else
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                if (textComponent.text == lines[index])
+                {
+                    NextLine();
+                }
+                else
+                {
+                    StopAllCoroutines();
+                    textComponent.text = lines[index];
+                }
+            }
         }
     }
 }
