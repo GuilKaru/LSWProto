@@ -11,11 +11,14 @@ public class OutfitChanger : MonoBehaviour
     public bool isPaused;
 
     public Image image;
-
+    
+    //Create List of the Outfits you can Equip
     public List<Sprite> options = new List<Sprite>();
     
     [HideInInspector]
     public int currentOption = 0;
+
+    // Next and Previous Outfits
     public void NextOption()
     {
         currentOption++;

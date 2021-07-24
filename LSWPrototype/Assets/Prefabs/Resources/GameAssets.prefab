@@ -46,3 +46,5 @@ MonoBehaviour:
   s_Outfit1: {fileID: -8760844295135331446, guid: 0e479e01e2b031d4798b9ac3a188e71a, type: 3}
   s_Outfit2: {fileID: 4714820398707673172, guid: 0e479e01e2b031d4798b9ac3a188e71a, type: 3}
   s_Outfit3: {fileID: -8368209222973591494, guid: 0e479e01e2b031d4798b9ac3a188e71a, type: 3}
+  s_Outfit4: {fileID: -196128162038466808, guid: b943aca98a34b1a488736d881a419fae, type: 3}
+  s_Outfit5: {fileID: 2059143122258566559, guid: 3e9ab25e9ca26dc46afa2b56f8db1470, type: 3}

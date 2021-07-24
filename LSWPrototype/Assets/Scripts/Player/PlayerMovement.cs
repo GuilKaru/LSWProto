@@ -4,27 +4,27 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float speed;
-    public Rigidbody2D playerRb;
+
+    //Reference to Animator so you can Animate different parts of the Sprites
     public Animator playerAnim;
     public Animator clothesAnim;
     public Animator hairTopAnim;
     public Animator hairBottomAnim;
+
     public GameObject PlayerOutfit;
+    [HideInInspector]
+    public int currentOutfit;
+    private int changeOutfit;
+    private string currentAnimation;
+    private Sprite currentSprite;
+
+    // Movement Variables
+    public Rigidbody2D playerRb;
+    public float speed;
     public int Gold = 50;
 
     private Vector2 lastMoveDir;
     private Vector2 moveDirection;
-    private string currentAnimation;
-    private Sprite currentSprite;
-    private int changeOutfit;
-    [HideInInspector]
-    public int currentOutfit;
-
-    /*//Animation States
-    const string Outfit_1 = "IdleOutfit1";
-    const string Outfit_2 = "IdleOutfit2";
-    const string Outfit_3 = "IdleOutfit3";*/
 
     private void Start()
     {
@@ -34,8 +34,11 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        //See what Outfit you are wearing
         WhatIsYourOutfit();
+        //Movement Inputs
         GetInputs();
+        //Animate
         DoAnimation();
     }
 
@@ -92,8 +95,11 @@ public class PlayerMovement : MonoBehaviour
         AreYouTheSame(Items.ItemType.Outfit_1);
         AreYouTheSame(Items.ItemType.Outfit_2);
         AreYouTheSame(Items.ItemType.Outfit_3);
+        AreYouTheSame(Items.ItemType.Outfit_4);
+        AreYouTheSame(Items.ItemType.Outfit_5);
     }
 
+    //Check if the outfit you are trying to animate is the same that you're wearing
     public bool AreYouTheSame(Items.ItemType itemType)
     {
         currentOutfit = PlayerOutfit.GetComponent<OutfitChanger>().currentOption;
