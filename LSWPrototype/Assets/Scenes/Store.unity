@@ -27777,6 +27777,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -8760844295135331446, guid: 0e479e01e2b031d4798b9ac3a188e71a, type: 3}
+    - target: {fileID: 7493095443397300277, guid: 31d4788c65d7d7849a1b83a1dff748fd, type: 3}
+      propertyPath: m_Size.x
+      value: 0.75894153
+      objectReference: {fileID: 0}
+    - target: {fileID: 7493095443397300277, guid: 31d4788c65d7d7849a1b83a1dff748fd, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.000000059604645
+      objectReference: {fileID: 0}
     - target: {fileID: 7493095443397300279, guid: 31d4788c65d7d7849a1b83a1dff748fd, type: 3}
       propertyPath: Gold
       value: 100
